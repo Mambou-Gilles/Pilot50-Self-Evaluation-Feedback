@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Feedback Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Optional: Add a simple fade-in animation for the feedback section */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-100 p-6 flex justify-center items-center font-sans">
+    <div class="max-w-4xl w-full mx-auto bg-white rounded-xl shadow-2xl p-8 space-y-8 border border-gray-200">
+        <div class="flex items-center space-x-3 text-blue-700">
+            <span class="text-3xl font-semibold">🔍</span>
+            <h1 class="text-2xl font-bold">Your Self-Evaluation Feedback</h1>
+        </div>
+
+        <form id="feedbackForm" class="space-y-6">
+            <div>
+                <label for="studentIdentifier" class="text-sm text-gray-600 mb-2 block font-medium">Student Name or Number</label>
+                <input type="text" id="studentIdentifier" placeholder="e.g., Jane Doe or 12345" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out" required />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="cohort" class="text-sm text-gray-600 mb-2 block font-medium">Select Cohort</label>
+                    <select id="cohort" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out">
+                        <option value="">-- Select Cohort --</option>
+                        <option value="Cohort 1">Cohort 1</option>
+                        <option value="Cohort 2">Cohort 2</option>
+                        <option value="Cohort 3">Cohort 3</option>
+                        <option value="Cohort 4">Cohort 4</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="week" class="text-sm text-gray-600 mb-2 block font-medium">Select Week</label>
+                    <select id="week" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out">
+                        <option value="">-- Select Week --</option>
+                        </select>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 ease-in-out">Get Feedback</button>
+        </form>
+
+        <div id="result" class="mt-6 hidden">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

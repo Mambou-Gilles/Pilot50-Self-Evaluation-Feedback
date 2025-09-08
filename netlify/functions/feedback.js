@@ -1,7 +1,12 @@
-// /netlify/functions/feedback.js
-const fetch = require('node-fetch');
 
-exports.handler = async (event) => {
+let fetch;
+
+exports.handler = async (event, context) => {
+  if (!fetch) {
+    const fetchModule = await import('node-fetch');
+    fetch = fetchModule.default;
+  }
+  
   try {
     const { cohort } = event.queryStringParameters;
     
@@ -11,7 +16,7 @@ exports.handler = async (event) => {
         body: JSON.stringify({ error: 'Missing required parameters.' }),
       };
     }
-    
+
     const url = `${process.env.GOOGLE_SCRIPT_URL}?cohort=${encodeURIComponent(cohort)}`;
     
     const response = await fetch(url);

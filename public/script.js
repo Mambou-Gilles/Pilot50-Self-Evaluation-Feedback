@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // ⚠️ THIS IS THE KEY CHANGE ⚠️
         // The URL now points to your proxy server, which will handle the request to the secret URL.
-        const url = `/api/feedback?cohort=${encodeURIComponent(cohort)}&studentIdentifier=${encodeURIComponent(studentIdentifier)}&week=${encodeURIComponent(week)}`;
+        const url = `/api/feedback?cohort=${encodeURIComponent(cohort)}`;
 
         fetch(url)
             .then((res) => {

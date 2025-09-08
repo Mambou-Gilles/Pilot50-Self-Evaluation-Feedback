@@ -5,6 +5,6 @@
   directory = "netlify/functions/"
 
 [[redirects]]
-  from = "/api/feedback"
+  from = "/api/*"
   to = "/.netlify/functions/feedback"
   status = 200
